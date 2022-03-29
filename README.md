@@ -16,16 +16,40 @@ You can take a look at the API documentation (https://pokeapi.co/docs/v2) in cas
 # Requirements
 - JAVA JDK (Developed on 17.0.2 version)
 - IntelliJ IDEA
+- Android Studio.
+- Appium (Used 1.21.0)
 
 # Installation
 - Clone or download repository.
 - Install JAVA JDK: https://www.oracle.com/java/technologies/downloads/
 - Install IntelliJ IDEA: https://www.jetbrains.com/es-es/idea/download/#section=windows
+- Install Android Studio: https://developer.android.com/studio
+- Install Appium: https://github.com/appium/appium-desktop/releases/tag/v1.21.0
+- Configure Enviroment Variables (Android SDK y Java):
+  1. System Properties > Enviroment Variables > System Variables > New...
+  2. Variable Name: ANDROID_SDK_ROOT | Variable Value: C:\Users\your_user\AppData\Local\Android\Sdk
+  3. Variable Name: JAVA_HOME | Variable Value: C:\Program Files\Java\jdk-1xx.xxx
+- Configure Emulator:
+  1. Open Android Studio
+  2. More Actions > Virtual Device Manager > Create Device.
+  3. Once you configured a device, run it from Actions.
+- Configure Appium:
+  1. Open Appium > Start server
+  2. Star Inspector Session
+  3. Desired Capabilities:
+     {
+     "platformName": "Android",
+     "deviceName": "emulator-5554",
+     "platformVersion": "12",  
+     "autoGrantPermissions": true,
+     "noReset": false,
+     "app": "C:/folder_app/the_fork.apk"
+     }
 - Open project with IntellJ IDEA:
-  1) Open > Repository directory
+  1. Open > Repository directory
 - Download dependencies:
-  1) Open pom.xml
-  2) Right button > Maven > Download Sources and Documentation or Reload project
+  1. Open pom.xml
+  2. Right button > Maven > Download Sources and Documentation or Reload project
 
 #Running test
 - Run testng.xml: Right button > Run
