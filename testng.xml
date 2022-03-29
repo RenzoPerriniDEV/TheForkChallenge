@@ -2,6 +2,7 @@
 <suite name="Pokemons">
     <test preserve-order="true" name="Normal Pokemons">
         <classes>
+            <class name="tests.TestCheckPersonalData" />
             <class name="tests.TestGetPokemons" />
         </classes>
     </test>

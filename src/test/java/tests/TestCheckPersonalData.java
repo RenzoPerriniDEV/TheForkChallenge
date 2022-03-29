@@ -10,7 +10,6 @@ public class TestCheckPersonalData extends BasePage {
 
     @Test
     public void test_onboarding_the_fork() {
-        goTo(base_url);
         LoginPage loginPage;
         OnboardingPage onboardingPage = new OnboardingPage(driver);
         onboardingPage.clickOnGetStartedButton();
@@ -19,7 +18,7 @@ public class TestCheckPersonalData extends BasePage {
         Assert.assertTrue(loginPage.loginPageIsLoaded());
     }
 
-    @Test
+    @Test(dependsOnMethods = {"test_onboarding_the_fork"})
     public void test_login_on_page() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -28,7 +27,7 @@ public class TestCheckPersonalData extends BasePage {
         Assert.assertTrue(mainPage.mainPageIsLoaded());
     }
 
-    @Test
+    @Test(dependsOnMethods = {"test_onboarding_the_fork", "test_login_on_page"})
     public void test_navigate_to_personal_info_page() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -40,7 +39,7 @@ public class TestCheckPersonalData extends BasePage {
         Assert.assertTrue(personalInfoPage.personalInfoPageIsLoaded());
     }
 
-    @Test
+    @Test(dependsOnMethods = {"test_onboarding_the_fork", "test_login_on_page", "test_navigate_to_personal_info_page"})
     public void test_verify_personal_data() {
         PersonalInfoPage personalInfoPage = new PersonalInfoPage(driver);
         Assert.assertEquals(personalInfoPage.getEmailText(), Users.Email);
